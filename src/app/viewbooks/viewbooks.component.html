@@ -1,0 +1,40 @@
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Year</th>
+            <th scope="col">Price</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="books.length ==0">
+            <td colspan="5" stlye="text-align: center"><h2>There are no products yet</h2></td>
+          </tr>
+          <tr *ngFor="let book of books">
+            <th>{{book.id}}</th>
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.year}}</td>
+            <td>{{book.price}}</td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="deleteBook(book.id)">Delete</button>
+            </td>
+          
+            </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-primary" (click)="RedirectToAddBook()">Add Book</button>
+
+      <div>
+        <p>Oldest Book:</p>
+        <p> {{ oldestBook.name }}</p>
+        <p>Latest Book:</p>
+        <p> {{ latestBook.name }}</p>
+      </div>
+</div>
+
